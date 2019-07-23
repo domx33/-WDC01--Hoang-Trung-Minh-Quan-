@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unlucky Game</title>
+
+    <!-- load font awesome icon-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- load bootstrap css-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!-- load css-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>This game is not fair</h1>
+            <p id="demo" style="color: black"></p>
+        </div>
+        <div class="row text-center">
+            <button type="button" onclick="letPlay(); setTimePlay()" id="start" class="btn-play"><i class="fa fa-play-circle"></i>Play</button>
+            <button type="button" id="myBtn" class="btn-play" class="game-rule">RULE</button>
+        </div>
+
+        <div class="row text-center">
+            <div class="container">
+                <span class="information">
+                <span id="myTimePlay" style="display: none;">Time: 00:00</span>
+                <span id="myMoves" style="display: none;">Moves: 00</span>
+                <span id="myScore" style="display: none;">Your scores: ???</span>
+                </span>
+                <div class="progress myprogress" style="display: none;" id="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" id="myprogressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-container center">
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(0)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(1)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(2)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(3)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(4)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(5)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(6)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(7)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(8)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(9)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(10)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(11)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(12)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(13)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(14)" src="img/disable.jpg"></div>
+            <div class="grid-item"><img id="id1" onclick="CheckStatus(15)" src="img/disable.jpg"></div>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h1 id="result"></h1>
+            <div class="w-100 text-right close">&times;</div>
+            <p id="totalTime"></p>
+            <p id="totalMove"></p>
+            <p id="urScore"></p>
+            <button id="play-again" onclick="location.reload();"><a> Play again 😄</a></button>
+        </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myRule" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h1>Rules</h1>
+            <div class="w-100 text-right close" onclick="turnOff();">&times;</div>
+            <p>Khi bắt đầu cuộc chơi bạn sẽ được nhận ngẫu nhiên từ 1000 - 2000 điểm</p>
+            <p>Mỗi 5 giây bạn sẽ bị trừ ngẫu nhiên từ 1 đến 10/40/80 điểm tương ứng với màu của thanh tiến trình</p>
+            <p>Bạn sẽ phải đánh đổi ngẫu nhiên từ 10 - 50 điểm để chọn một ô bí ẩn, nếu chọn đúng một cặp ô bạn sẽ nhận được 150 và ngược lại thì bạn mất 50 điểm</p>
+            <p>Nhiệm vụ của bạn: Hoàn thành game trước 2 phút và sở hữu ít nhất 450 điểm!</p>
+        </div>
+    </div>
+    <!-- load js -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

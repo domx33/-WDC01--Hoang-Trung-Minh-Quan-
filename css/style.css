@@ -1,0 +1,141 @@
+body {
+    /* color: #fafafa !important;*/
+    font-family: 'Amatic SC', cursive !important;
+}
+
+.btn-play {
+    margin: 0 auto;
+    color: #000;
+    background-color: #fafafa;
+    font-size: 25px;
+    border-style: none;
+}
+
+h1 {
+    margin: 65px auto;
+    color: #000;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    padding: 30px;
+    width: 680px;
+}
+
+.center {
+    background-color: #6d6d6f;
+    box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 4px;
+}
+
+
+/*Các ô lưới*/
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    /*  border: 1px solid #cecece;*/
+    border: 2px 4px 13px 0 rgba(46, 61, 73, 0.5);
+    height: 140px;
+    width: 140px;
+    border-radius: 4px;
+    /*background: url('../img/disable.jpg');*/
+    background-size: cover;
+}
+
+.myprogress {
+    width: 680px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: -160px;
+}
+
+
+/*Cửa sổ pop up*/
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 50px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*Thời gian chơi, số lượt di chuyển*/
+
+#time-play,
+#moves,
+#myScore {
+    margin-right: 50px;
+    margin-top: -60px;
+    padding: 10px auto;
+    margin: auto 10px;
+}
+
+
+/* Nút chơi lại */
+
+#play-again {
+    background-color: #141214;
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #ffffff;
+    border-radius: 5px;
+}
