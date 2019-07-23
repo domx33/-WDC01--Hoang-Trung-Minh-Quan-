@@ -176,13 +176,13 @@ function checkTime(i) {
 
 //Tính thời gian hiện tại đã chơi
 function progressTime(min, sec) {
-    var totalTime = 60;
+    var totalTime = 90;
     var presentTime = min * 60 + sec;
     return (presentTime / totalTime) * 100;
 }
 
 //Hiển thị thời gian đang chơi
-//Thời gian giới hạn là 1 phút
+//Thời gian giới hạn là 3 phút
 
 var sec = min = 0;
 var timeout, progressPlay;
@@ -195,7 +195,7 @@ function setTimePlay() {
     }
     progressPlay = progressTime(min, sec);
 
-    if (min == 3 && sec == 0 || totalUrScore <= 450) {
+    if (min == 1 && sec == 30 || totalUrScore <= 450) {
         document.getElementById("myTimePlay").innerHTML = "Time: " + checkTime(min) + ":" + checkTime(sec);
         document.getElementById("myprogressbar").style.width = progressPlay + "%";
         /*
