@@ -176,13 +176,13 @@ function checkTime(i) {
 
 //Tính thời gian hiện tại đã chơi
 function progressTime(min, sec) {
-    var totalTime = 180;
+    var totalTime = 60;
     var presentTime = min * 60 + sec;
     return (presentTime / totalTime) * 100;
 }
 
 //Hiển thị thời gian đang chơi
-//Thời gian giới hạn là 3 phút
+//Thời gian giới hạn là 1 phút
 
 var sec = min = 0;
 var timeout, progressPlay;
