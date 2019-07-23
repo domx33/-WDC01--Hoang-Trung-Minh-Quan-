@@ -56,7 +56,7 @@ var loop;
 //xử lý khi ấn nút
 function CheckStatus(k) {
     if (checkPlay == 1) {
-        if (arrGridItem[k].src != "#") {
+        if (arrGridItem[k].src != "img/disable.jpg") {
             //Hiển thị hình ảnh ô thứ k (tương ứng một bức ảnh ẩn)
             arrGridItem[k].src = arrayImage[k];
 
@@ -153,6 +153,7 @@ function setMap() {
     for (var i = 0; i < 8; i++) {
         //Tìm vị trí để nhúng hình ảnh vào
         //Nếu đã có ảnh rồi thì lặp lại tìm vị trí mới
+        //arrayImage: Một mảng hình ảnh
         do {
             var tmp1 = Math.floor(Math.random() * 16);
         } while (arrayImage[tmp1] != null);
@@ -190,6 +191,7 @@ function progressTime(min, sec) {
 var sec = min = 0;
 var timeout, progressPlay;
 
+//Hiển thị thời gian, kiểm tra thời gian 
 function setTimePlay() {
 
     if (sec == 60) {
