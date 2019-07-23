@@ -5,7 +5,7 @@ var arr_img = [
 
 //list grid-item - mảng các ô được đánh số thứ tự từ 0 - 15
 var arrGridItem = document.querySelectorAll("img#id1");
-
+var checkPlay = 0;
 //Biến dùng để kiểm tra ảnh có trùng nhau hay không
 var comparedImage = null;
 
@@ -55,65 +55,67 @@ var lastScore = document.getElementById("myScore");
 var loop;
 //xử lý khi ấn nút
 function CheckStatus(k) {
-    if (arrGridItem[k].src != "#") {
-        //Hiển thị hình ảnh ô thứ k (tương ứng một bức ảnh ẩn)
-        arrGridItem[k].src = arrayImage[k];
+    if (checkPlay == 1) {
+        if (arrGridItem[k].src != "#") {
+            //Hiển thị hình ảnh ô thứ k (tương ứng một bức ảnh ẩn)
+            arrGridItem[k].src = arrayImage[k];
 
-        //Click một lần trừ ngẫu nhiên từ 10 - 50 điểm
-        totalUrScore -= 10 + Math.floor(Math.random() * 40);
+            //Click một lần trừ ngẫu nhiên từ 10 - 50 điểm
+            totalUrScore -= 10 + Math.floor(Math.random() * 40);
 
-        //Nếu biến comparedImage chưa có lưu trữ bức ảnh nào thì gán cho nó bức ảnh hiện tại
-        if (comparedImage == null) {
-            comparedImage = arrayImage[k];
-            //Lưu lại vị trí của img1
-            posImage1 = k;
+            //Nếu biến comparedImage chưa có lưu trữ bức ảnh nào thì gán cho nó bức ảnh hiện tại
+            if (comparedImage == null) {
+                comparedImage = arrayImage[k];
+                //Lưu lại vị trí của img1
+                posImage1 = k;
 
-            //Tăng số click lên 1
-            numberMoves += 1;
-            setTimeout(function() {
-                document.getElementById("moves").innerHTML = "Moves: " + checkTime(numberMoves);
-            }, 200);
-        }
-        //Biến comparedImage đã có liên kết một bức ảnh 
-        else {
-            if (k != posImage1) {
                 //Tăng số click lên 1
                 numberMoves += 1;
                 setTimeout(function() {
-                    document.getElementById("myMoves").innerHTML = "Moves: " + checkTime(numberMoves);
-                }, 300);
-                //Trường hợp ảnh trùng nhau thì sẽ đưa ảnh thành file ảnh khác
-                if (comparedImage == arrayImage[k]) {
-
+                    document.getElementById("moves").innerHTML = "Moves: " + checkTime(numberMoves);
+                }, 200);
+            }
+            //Biến comparedImage đã có liên kết một bức ảnh 
+            else {
+                if (k != posImage1) {
+                    //Tăng số click lên 1
+                    numberMoves += 1;
                     setTimeout(function() {
-                        arrGridItem[k].src = "img/grey.jpg";
-                        arrGridItem[posImage1].src = "img/grey.jpg";
-                        comparedImage = null;
-                    }, 400);
+                        document.getElementById("myMoves").innerHTML = "Moves: " + checkTime(numberMoves);
+                    }, 300);
+                    //Trường hợp ảnh trùng nhau thì sẽ đưa ảnh thành file ảnh khác
+                    if (comparedImage == arrayImage[k]) {
 
-                    //Khi tìm được ảnh trùng thì số cặp tìm được sẽ tăng lên
-                    point += 1;
-                    totalUrScore += 15;
-                    lastScore.innerHTML = "Your scores: " + totalUrScore;
+                        setTimeout(function() {
+                            arrGridItem[k].src = "img/grey.jpg";
+                            arrGridItem[posImage1].src = "img/grey.jpg";
+                            comparedImage = null;
+                        }, 400);
 
-                    //Khi tìm đủ 8 cặp thì  chiến thắng và hiện ra bảng thông báo (popup hoặc alert)
-                    if (point == 8) {
-                        modal.style.display = "block";
-                        setmyPopup(true);
-                        clearTimeout(timeout);
-                        clearInterval(loop);
+                        //Khi tìm được ảnh trùng thì số cặp tìm được sẽ tăng lên
+                        point += 1;
+                        totalUrScore += 15;
+                        lastScore.innerHTML = "Your scores: " + totalUrScore;
+
+                        //Khi tìm đủ 8 cặp thì  chiến thắng và hiện ra bảng thông báo (popup hoặc alert)
+                        if (point == 8) {
+                            modal.style.display = "block";
+                            setmyPopup(true);
+                            clearTimeout(timeout);
+                            clearInterval(loop);
+                        }
                     }
-                }
-                //Trường hợp ảnh khác nhau 
-                else {
-                    setTimeout(function() {
-                        arrGridItem[k].src = "img/disable.jpg";
-                        arrGridItem[posImage1].src = "img/disable.jpg";
-                        comparedImage = null;
-                    }, 400);
+                    //Trường hợp ảnh khác nhau 
+                    else {
+                        setTimeout(function() {
+                            arrGridItem[k].src = "img/disable.jpg";
+                            arrGridItem[posImage1].src = "img/disable.jpg";
+                            comparedImage = null;
+                        }, 400);
 
-                    totalUrScore -= 50;
-                    lastScore.innerHTML = "Your scores: " + totalUrScore;
+                        totalUrScore -= 50;
+                        lastScore.innerHTML = "Your scores: " + totalUrScore;
+                    }
                 }
             }
         }
@@ -127,6 +129,7 @@ function letPlay() {
     document.getElementById("myMoves").style.display = "";
     document.getElementById("myTimePlay").style.display = "";
     document.getElementById("myScore").style.display = "";
+    checkPlay = 1;
     setMap();
     totalUrScore = 1000 + Math.floor(Math.random() * 1000);
     alert("Chúc mừng bạn nhận được: " + totalUrScore + " điểm. Chúc bạn chơi game vui vẻ!");
